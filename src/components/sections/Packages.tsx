@@ -192,6 +192,7 @@ export function PackageCard({ p }: { p: Pkg }) {
           </span>
         ))}
       </div>
+      </div>
     </article>
   );
 }
