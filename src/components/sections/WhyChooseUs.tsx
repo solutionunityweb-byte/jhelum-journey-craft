@@ -1,11 +1,11 @@
-import { ShieldCheck, FileBadge, Hotel, Car, HeadphonesIcon, BadgeCheck } from "lucide-react";
+import { ShieldCheck, FileBadge, Hotel, Car, Headphones, BadgeCheck } from "lucide-react";
 
 const features = [
   { i: ShieldCheck, t: "Government Registered", d: "Officially registered with the J&K Department of Tourism — Reg. No. JKRTA00000941." },
   { i: FileBadge, t: "GST Registered Business", d: "Fully compliant GST-registered travel operator with transparent invoicing." },
   { i: Hotel, t: "Premium Hotels & Houseboats", d: "Hand-picked deluxe properties and authentic Dal Lake houseboats." },
   { i: Car, t: "Private Cab Service", d: "Comfortable Dzire, Ertiga and Tavera with professional Kashmiri drivers." },
-  { i: HeadphonesIcon, t: "24×7 Travel Assistance", d: "On-trip support every step of the way — anytime you need us." },
+  { i: Headphones, t: "24×7 Travel Assistance", d: "On-trip support every step of the way — anytime you need us." },
   { i: BadgeCheck, t: "Best Price Guarantee", d: "Honest, transparent pricing with no hidden charges — ever." },
 ];
 
