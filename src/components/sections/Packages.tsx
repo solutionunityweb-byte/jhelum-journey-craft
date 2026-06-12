@@ -1,11 +1,20 @@
 import { BRAND, waLinkWithMessage } from "@/lib/brand";
 import { Check, MessageCircle, Phone, ShieldCheck, FileBadge, Mountain, Sparkles, BadgeCheck } from "lucide-react";
+import imgDal from "@/assets/dest-dallake.jpg";
+import imgSrinagar from "@/assets/dest-srinagar.jpg";
+import imgGulmarg from "@/assets/dest-gulmarg.jpg";
+import imgPahalgam from "@/assets/dest-pahalgam.jpg";
+import imgSonamarg from "@/assets/dest-sonamarg.jpg";
+import imgDoodhpatri from "@/assets/dest-doodhpatri.jpg";
 
 export type Pkg = {
   title: string;
+  duration: string;
   perPerson: string;
   minPax: string;
   total: string;
+  image: string;
+  imageAlt: string;
   includes: string[];
   cta: string;
   featured?: boolean;
@@ -14,67 +23,91 @@ export type Pkg = {
 export const PACKAGES: Pkg[] = [
   {
     title: "4N 5D Couple Package",
+    duration: "4N 5D",
     perPerson: "₹15,000",
     minPax: "Minimum 2 Adults",
     total: "₹30,000",
+    image: imgDal,
+    imageAlt: "Dal Lake Srinagar with houseboats and shikara",
     includes: ["3 Nights Hotel Stay", "1 Night Houseboat Stay", "Free Shikara Ride", "Srinagar Local Sightseeing", "Sonamarg • Gulmarg • Pahalgam", "Private Dzire Cab", "Airport Pickup & Drop"],
     cta: "Book on WhatsApp",
     featured: true,
   },
   {
     title: "4N 5D Group Package",
+    duration: "4N 5D",
     perPerson: "₹11,000",
     minPax: "Minimum 4 Adults",
     total: "₹44,000",
-    includes: ["2 Deluxe Rooms", "Private Cab", "Hotel + Houseboat", "All Sightseeing", "Free Shikara Ride"],
+    image: imgGulmarg,
+    imageAlt: "Gulmarg snow-covered meadows Kashmir",
+    includes: ["2 Deluxe Rooms", "Private Cab", "Hotel + Houseboat", "Srinagar • Sonamarg • Gulmarg • Pahalgam", "Free Shikara Ride"],
     cta: "Book on WhatsApp",
   },
   {
     title: "4N 5D Group Package",
+    duration: "4N 5D",
     perPerson: "₹9,300",
     minPax: "Minimum 6 Adults",
     total: "₹55,800",
-    includes: ["Ertiga Cab", "2 Rooms + Extra Beds", "Houseboat Stay", "Free Shikara Ride", "All Sightseeing"],
+    image: imgPahalgam,
+    imageAlt: "Pahalgam valley landscape Kashmir",
+    includes: ["Ertiga Cab", "2 Rooms + Extra Beds", "Houseboat Stay", "Free Shikara Ride", "Srinagar • Sonamarg • Gulmarg • Pahalgam"],
     cta: "Book on WhatsApp",
   },
   {
     title: "5N 6D Premium Package",
+    duration: "5N 6D",
     perPerson: "₹13,250",
     minPax: "Minimum 4 Adults",
     total: "₹53,000",
+    image: imgDoodhpatri,
+    imageAlt: "Doodhpatri meadows Kashmir",
     includes: ["Srinagar • Sonamarg • Gulmarg", "Doodhpatri Day Trip", "Pahalgam Night Stay", "Houseboat Stay", "Private Cab"],
     cta: "Book on WhatsApp",
     featured: true,
   },
   {
     title: "5N 6D Jammu Pickup Package",
+    duration: "5N 6D",
     perPerson: "₹14,750",
     minPax: "Minimum 4 Adults",
     total: "₹59,000",
+    image: imgSonamarg,
+    imageAlt: "Sonamarg meadows of gold Kashmir",
     includes: ["Jammu / Katra Pickup", "All Sightseeing", "Hotel + Houseboat", "Pahalgam Stay", "Free Shikara Ride"],
     cta: "Book on WhatsApp",
   },
   {
     title: "5N 6D Group Package",
+    duration: "5N 6D",
     perPerson: "₹10,500",
     minPax: "Minimum 6 Adults",
     total: "₹63,000",
+    image: imgSrinagar,
+    imageAlt: "Srinagar Kashmir cityscape",
     includes: ["Ertiga Cab", "3 Rooms", "Hotel + Houseboat", "All Sightseeing", "Free Shikara Ride"],
     cta: "Book on WhatsApp",
   },
   {
     title: "5N 6D Group Package",
+    duration: "5N 6D",
     perPerson: "₹8,750",
     minPax: "Minimum 8 Adults",
     total: "₹70,000",
+    image: imgGulmarg,
+    imageAlt: "Gulmarg Kashmir scenic view",
     includes: ["Tavera Cab", "3 Rooms + Extra Beds", "All Sightseeing", "Free Shikara Ride"],
     cta: "Book on WhatsApp",
   },
   {
     title: "6N 7D Couple Package",
+    duration: "6N 7D",
     perPerson: "₹22,500",
     minPax: "Minimum 2 Adults",
     total: "₹45,000",
+    image: imgDal,
+    imageAlt: "Dal Lake Srinagar romantic houseboat stay",
     includes: ["Srinagar Pickup & Drop", "Premium Stay", "Houseboat Stay", "Free Shikara Ride", "All Major Attractions"],
     cta: "Book on WhatsApp",
   },
@@ -94,13 +127,36 @@ const TRUST = [
 
 export function PackageCard({ p }: { p: Pkg }) {
   return (
-    <article className={`relative flex flex-col rounded-3xl border bg-card p-6 sm:p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-glass ${p.featured ? "border-orange/40 ring-1 ring-orange/30" : "border-border"}`}>
-      {p.featured && (
-        <span className="absolute -top-3 left-6 inline-flex items-center rounded-full bg-gradient-warm text-white text-[11px] font-semibold px-3 py-1 shadow-soft">
-          Most Popular
+    <article className={`relative flex flex-col rounded-3xl border bg-card shadow-soft transition-all hover:-translate-y-1 hover:shadow-glass overflow-hidden ${p.featured ? "border-orange/40 ring-1 ring-orange/30" : "border-border"}`}>
+      <div className="relative h-[200px] sm:h-[250px] w-full overflow-hidden">
+        <img
+          src={p.image}
+          alt={p.imageAlt}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-deep/10 to-transparent" />
+        <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-white/95 text-deep text-[11px] font-bold px-3 py-1.5 shadow-soft">
+          {p.duration}
         </span>
-      )}
-      <h3 className="font-display text-lg sm:text-xl font-bold text-deep leading-snug">{p.title}</h3>
+        {p.featured && (
+          <span className="absolute top-3 right-3 inline-flex items-center rounded-full bg-gradient-warm text-white text-[11px] font-bold px-3 py-1.5 shadow-soft">
+            Most Popular
+          </span>
+        )}
+        <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5">
+          <span className="inline-flex items-center gap-1 rounded-full bg-white/95 text-deep text-[10.5px] font-semibold px-2 py-1">
+            <ShieldCheck className="h-3 w-3 text-orange" /> Govt Registered
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full bg-white/95 text-deep text-[10.5px] font-semibold px-2 py-1">
+            <Sparkles className="h-3 w-3 text-orange" /> Free Shikara Ride
+          </span>
+        </div>
+      </div>
+
+      <div className="flex flex-col flex-1 p-6 sm:p-7">
+        <h3 className="font-display text-lg sm:text-xl font-bold text-deep leading-snug">{p.title}</h3>
+
 
       <div className="mt-4 rounded-2xl bg-gradient-to-br from-secondary/70 to-secondary/30 border border-border p-4">
         <div className="flex items-baseline gap-2 flex-wrap">
@@ -135,6 +191,7 @@ export function PackageCard({ p }: { p: Pkg }) {
             <I className="h-3 w-3 text-orange" /> {t}
           </span>
         ))}
+      </div>
       </div>
     </article>
   );
