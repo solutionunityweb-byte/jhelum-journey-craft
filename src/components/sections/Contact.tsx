@@ -13,17 +13,24 @@ export function Contact() {
           <div className="mt-8 space-y-5">
             <div className="flex items-start gap-4">
               <div className="h-11 w-11 rounded-2xl bg-gradient-brand text-white inline-flex items-center justify-center shrink-0"><MapPin className="h-5 w-5" /></div>
-              <div>
+              <div className="min-w-0">
                 <div className="font-semibold text-deep">Office Address</div>
                 <div className="text-sm text-muted-foreground">{BRAND.address}</div>
               </div>
             </div>
             <div className="flex items-start gap-4">
+              <div className="h-11 w-11 rounded-2xl bg-[#25D366] text-white inline-flex items-center justify-center shrink-0"><MessageCircle className="h-5 w-5" /></div>
+              <div className="min-w-0">
+                <div className="font-semibold text-deep">WhatsApp</div>
+                <a href={BRAND.whatsapp} target="_blank" rel="noopener" className="text-sm text-muted-foreground hover:text-orange">{BRAND.whatsappNumber}</a>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
               <div className="h-11 w-11 rounded-2xl bg-gradient-brand text-white inline-flex items-center justify-center shrink-0"><Phone className="h-5 w-5" /></div>
-              <div>
-                <div className="font-semibold text-deep">Phone</div>
+              <div className="min-w-0">
+                <div className="font-semibold text-deep">Call Us</div>
                 <div className="text-sm text-muted-foreground flex flex-col">
-                  {BRAND.phones.map((p) => (
+                  {BRAND.callNumbers.map((p) => (
                     <a key={p} href={`tel:${p.replace(/\s/g, "")}`} className="hover:text-orange">{p}</a>
                   ))}
                 </div>
@@ -31,7 +38,7 @@ export function Contact() {
             </div>
             <div className="flex items-start gap-4">
               <div className="h-11 w-11 rounded-2xl bg-gradient-brand text-white inline-flex items-center justify-center shrink-0"><Mail className="h-5 w-5" /></div>
-              <div>
+              <div className="min-w-0">
                 <div className="font-semibold text-deep">Email</div>
                 <div className="text-sm text-muted-foreground flex flex-col">
                   {BRAND.emails.map((e) => (
@@ -42,10 +49,16 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href={BRAND.tel} className="inline-flex items-center gap-2 rounded-full bg-deep text-white px-5 py-3 font-semibold hover:bg-deep/90 transition"><Phone className="h-4 w-4" /> Call Now</a>
-            <a href={BRAND.whatsapp} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-full bg-gradient-warm text-white px-5 py-3 font-semibold hover:opacity-95 transition"><MessageCircle className="h-4 w-4" /> WhatsApp Now</a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Central+Market+Abi+Guzar+Srinagar" target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 font-semibold text-deep hover:bg-secondary transition"><Navigation className="h-4 w-4" /> Get Directions</a>
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+            <a href={BRAND.whatsapp} target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-5 py-3.5 font-semibold shadow-soft hover:scale-[1.02] transition">
+              <MessageCircle className="h-4 w-4" /> Book on WhatsApp
+            </a>
+            {BRAND.callNumbers.map((n) => (
+              <a key={n} href={`tel:${n.replace(/\s/g, "")}`} className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-brand text-white px-5 py-3.5 font-semibold hover:opacity-95 transition">
+                <Phone className="h-4 w-4" /> Call {n}
+              </a>
+            ))}
+            <a href="https://www.google.com/maps/search/?api=1&query=Central+Market+Abi+Guzar+Srinagar" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-5 py-3 font-semibold text-deep hover:bg-secondary transition"><Navigation className="h-4 w-4" /> Get Directions</a>
           </div>
         </div>
 

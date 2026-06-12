@@ -26,10 +26,11 @@ export function Hero() {
             Premium Kashmir tour packages with hotel, houseboat, sightseeing, airport transfers and a complimentary Shikara ride — crafted by trusted local experts in Srinagar.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={BRAND.whatsapp} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-full bg-gradient-warm text-white px-6 py-3.5 font-semibold shadow-glass hover:scale-[1.02] transition">
-              <MessageCircle className="h-5 w-5" /> WhatsApp Now
+            <a href={BRAND.whatsapp} target="_blank" rel="noopener" className="relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-7 py-4 text-base font-bold shadow-glass hover:scale-[1.03] transition">
+              <span className="absolute inset-0 rounded-full animate-ping bg-[#25D366]/30 -z-10" />
+              <MessageCircle className="h-5 w-5" /> Book on WhatsApp
             </a>
-            <a href={BRAND.tel} className="inline-flex items-center gap-2 rounded-full glass-dark text-white px-6 py-3.5 font-semibold hover:bg-white/15 transition">
+            <a href={BRAND.tel} className="inline-flex items-center gap-2 rounded-full bg-white text-deep px-7 py-4 text-base font-bold shadow-soft hover:scale-[1.03] transition">
               <Phone className="h-5 w-5" /> Call Now
             </a>
           </div>
