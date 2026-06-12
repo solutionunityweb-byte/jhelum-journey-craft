@@ -83,6 +83,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "JAK Tour & Travels" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "JAK Tour & Travels – Premium Kashmir Tour Packages" },
+      { name: "twitter:title", content: "JAK Tour & Travels – Premium Kashmir Tour Packages" },
+      { property: "og:description", content: "Govt registered Kashmir travel agency in Srinagar. Premium tour packages with hotel, houseboat, Shikara ride & private cab." },
+      { name: "twitter:description", content: "Govt registered Kashmir travel agency in Srinagar. Premium tour packages with hotel, houseboat, Shikara ride & private cab." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a44df8f4-2835-4cfa-a0d0-33328b21575c/id-preview-d704dc3f--6693e9a7-aec9-4f6b-8d36-425c18c38017.lovable.app-1781277686468.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a44df8f4-2835-4cfa-a0d0-33328b21575c/id-preview-d704dc3f--6693e9a7-aec9-4f6b-8d36-425c18c38017.lovable.app-1781277686468.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
