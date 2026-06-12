@@ -35,8 +35,9 @@ export function Footer() {
           <h4 className="font-display text-lg text-white mb-3">Contact</h4>
           <ul className="space-y-2 text-sm text-white/75">
             <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 text-orange shrink-0" />{BRAND.address}</li>
-            {BRAND.phones.map((p) => (
-              <li key={p}><a href={`tel:${p.replace(/\s/g, "")}`} className="inline-flex items-center gap-2 hover:text-orange"><Phone className="h-4 w-4 text-orange" />{p}</a></li>
+            <li><a href={BRAND.whatsapp} target="_blank" rel="noopener" className="inline-flex items-center gap-2 hover:text-orange"><Phone className="h-4 w-4 text-orange" />WhatsApp: {BRAND.whatsappNumber}</a></li>
+            {BRAND.callNumbers.map((p) => (
+              <li key={p}><a href={`tel:${p.replace(/\s/g, "")}`} className="inline-flex items-center gap-2 hover:text-orange"><Phone className="h-4 w-4 text-orange" />Call: {p}</a></li>
             ))}
             {BRAND.emails.map((e) => (
               <li key={e}><a href={`mailto:${e}`} className="inline-flex items-center gap-2 hover:text-orange break-all"><Mail className="h-4 w-4 text-orange" />{e}</a></li>
