@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
-import logoAsset from "@/assets/jak-logo.asset.json";
+const logoUrl = "/jak-logo.jpeg";
 import { BRAND } from "@/lib/brand";
 import { TopBar } from "./TopBar";
 
