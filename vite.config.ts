@@ -6,9 +6,9 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // Select Nitro preset based on deployment target.
-// - Vercel sets VERCEL=1
-// - Netlify sets NETLIFY=true
-// - Default: cloudflare_module (used by Lovable hosting)
+// - Vercel sets VERCEL=1 and needs Nitro's Vercel Build Output API adapter.
+// - Netlify sets NETLIFY=true and needs Nitro's Netlify functions adapter.
+// - Lovable hosting forces its Cloudflare adapter internally in sandbox/publish builds.
 const preset =
   process.env.NITRO_PRESET ??
   (process.env.VERCEL ? "vercel" : process.env.NETLIFY ? "netlify" : undefined);
@@ -17,14 +17,9 @@ export default defineConfig({
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     server: { entry: "server" },
-    ...(preset ? { target: preset } : {}),
   },
-  ...(preset
-    ? {
-        vite: {
-          // Forward preset to the nitro plugin via env so it picks the right adapter.
-          define: {},
-        },
-      }
-    : {}),
+  // This must be top-level `nitro`; `tanstackStart.target` is ignored by the
+  // @lovable.dev/vite-tanstack-config Nitro plugin, which leaves external
+  // Vercel/Netlify builds without deployable server output and causes 404s.
+  nitro: preset ? { preset } : true,
 });
