@@ -30,7 +30,7 @@ export function Header() {
         <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-2.5 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
           <Link to="/" className="flex min-w-0 items-center gap-2.5 sm:gap-3 group">
             <img
-              src={logoAsset.url}
+              src={logoUrl}
               alt="JAK Tour & Travels logo"
               className="h-11 w-11 sm:h-[60px] sm:w-[60px] object-contain rounded-xl shrink-0"
             />
